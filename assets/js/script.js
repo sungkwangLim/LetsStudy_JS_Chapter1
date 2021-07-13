@@ -29,3 +29,14 @@ const tabEvt = {
 const tabMenu = document.querySelectorAll('.tab-menu a');
 const tabCont = document.querySelectorAll('.tab-wrap .tab-cont');
 tabEvt.click(tabMenu,tabCont);
+
+//html을 먼저 불러오고 js를 실행해야 버그가 안생김
+//js 선택자를 잘 보고 컨트롤해야함
+//Chrome 개발자 모드 콘솔창에서 버그 찾고 수정하는 방법 익숙해지기
+function 알림창열기(){
+    document.querySelector('.alert-box').style.display = 'block'
+}
+
+function 알림창닫기(){
+    document.querySelector('.alert-box').style.display = 'none'
+}
