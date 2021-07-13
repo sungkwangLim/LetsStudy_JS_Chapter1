@@ -26,7 +26,3 @@ ul:after{content: "";display: block;clear: both;}
 
 h1 {padding: 15px 0; font-size: 24px; text-align: center; line-height: 1.5; }
 
-.tab-menu {display: flex; justify-content: center; align-items: center;}
-.tab-menu a {display: block; width: 100%; line-height: 42px; background: rgb(196, 196, 196); color: #ddd; text-align: center;}
-.tab-menu a.active {background: #000; color: #fff;}
-.tab-cont {display: none; height: 100vh; background: rgb(128, 16, 49); color: #fff; text-align: center;}

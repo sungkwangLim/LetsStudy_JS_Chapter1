@@ -11,6 +11,7 @@
 
     <!-- css -->
 	<link href="assets/css/common.css" rel="stylesheet" type="text/css">    
+	<link href="assets/css/main.css" rel="stylesheet" type="text/css">    
     
 </head>
 <body>
@@ -28,6 +29,17 @@
                     <div class="tab-cont">컨텐츠2</div>
                     <div class="tab-cont">컨텐츠3</div>
                 </div>
+            </div>
+        </article>
+        <hr>
+        <article>
+            <div class="layout">
+                <h1>Alert Box</h1>
+                <div class="alert-box">
+                    Alert Box 1
+                    <button type="button" onClick="document.querySelector('.alert-box').style.display = 'none'">Alert Box Button Close</button>
+                </div>
+                <button type="button" onClick="document.querySelector('.alert-box').style.display = 'block'">Alert Box Button Open</button>
             </div>
         </article>
     </section>

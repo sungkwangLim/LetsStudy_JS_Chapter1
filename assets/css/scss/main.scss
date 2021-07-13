@@ -1,0 +1,17 @@
+@mixin allCenterBox {
+    display: flex; justify-content: center; align-items: center;
+}
+
+body {text-align: center;}
+button {display: inline-block; border: 1px solid #ccc; color: #000; background: rgb(226, 226, 226); border-radius: 5px; padding: 10px;}
+.tab-menu {@include allCenterBox();
+    a {display: block; width: 100%; line-height: 42px; background: rgb(196, 196, 196); color: #ddd; text-align: center;
+        &.active {background: #000; color: #fff;}
+    }
+}
+.tab-cont {display: none; height: 50vh; background: rgb(128, 16, 49); color: #fff; }
+
+@mixin alertBox($bg,$c) {
+    background: $bg; color: $c; padding: 20px; border-radius: 10px;
+}
+.alert-box {display: none; @include alertBox(rgb(97, 72, 240), #fff); font-size: 16px;}
