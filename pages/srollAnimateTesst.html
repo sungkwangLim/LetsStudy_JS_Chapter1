@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Study</title>
+
+    <!-- font -->    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- css -->
+	<link href="../assets/css/common.css" rel="stylesheet" type="text/css">    
+	<link href="../assets/css/main.css" rel="stylesheet" type="text/css">    
+    
+</head>
+<body>
+    <ul class="test">
+        <li style="background-color: azure;"></li>
+        <li style="background-color: hotpink;"></li>
+        <li style="background-color: blueviolet;"></li>
+        <li style="background-color: khaki;"></li>
+        <li style="background-color: steelblue;"></li>
+    </ul>
+    <div class="icon-ani">
+        <strong>테스트임</strong><span class="icon"></span>
+    </div>
+<style>
+    .test li {height:90vh;}
+    .icon-ani {position: fixed; right: 15px; bottom: 15px; border-radius: 50px; overflow: hidden; width: 148px; box-sizing: border-box;
+        transition: 0.3s all;
+        padding: 0 40px 0 25px; line-height: 50px; height: 50px;
+        /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f18d4b+0,e14f49+50,d93546+100 */
+        background: #f18d4b; /* Old browsers */
+        background: -moz-linear-gradient(-45deg,  #f18d4b 0%, #e14f49 50%, #d93546 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg,  #f18d4b 0%,#e14f49 50%,#d93546 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg,  #f18d4b 0%,#e14f49 50%,#d93546 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f18d4b', endColorstr='#d93546',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    }
+    .icon-ani strong {color: #fff; transition: 0.3s all;}
+    .icon {position: absolute; right: 15px; top:0;width: 50px; height: 50px; background: rgba(255,255,255,0.7); vertical-align: top; margin-left: -10px; transition: 0.3s all;}
+     
+
+    /* active */
+    .animate .icon-ani {width: 50px; padding: 0;}
+    .animate .icon-ani strong {opacity: 0;}
+    .animate .icon-ani .icon {right:0;}
+</style>
+<!-- js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(window).scroll(function(){
+        var th = $(this).scrollTop();
+        var changePoint = 100;
+        if(th > changePoint){
+            console.log('a');
+            $('html').addClass('animate');
+        } else {
+            console.log('b');
+            $('html').removeClass('animate');
+        }
+
+    });
+</script>
+</body>
+</html>
