@@ -44,9 +44,13 @@ function 알림창열기(구멍,구멍2){
 // }
 
 /* 
-
  20210714 코딩애플4강 숙제 -> html은 냅두고 버튼1, 버튼2 눌렀을때 파라메터값을 이용해서
  '아이디를 입력안하셨어요'
  '비번을 입력안하셨어요'
  라고 텍스트 표시하게 만들기
 */
+
+//이벤트 리스너 배우기
+document.getElementById('close').addEventListener('click',function(){
+    알림창열기('none');
+});
