@@ -57,3 +57,30 @@ document.getElementById('close').addEventListener('click',function(){
 
 //제이쿼리는 바디태그 끝나는 곳 전에 넣는게 낫다.
 $('#jqueryTest').addClass('yellow-bg');
+
+//객체지향 Class문법 이해하기 예전 문법
+function 기계(스킬1,스킬2){
+    this.q = 스킬1;
+    this.w = 스킬2;
+}
+var nunu = new 기계('누누스킬1','누누스킬2');
+var garen = new 기계('가렌스킬1','가렌스킬2');
+
+//객체지향 Class문법 이해하기 ES6 클래스 넣을때 첫문자는대문자
+class Hero { //부모
+    constructor(스킬1,스킬2){
+        this.q = 스킬1;
+        this.w = 스킬2;
+    }
+}
+//prototype 은 한마디로 유전자
+Hero.prototype.e = '스킬3';
+
+var bein = new Hero('베인스킬1','베인스킬2'); //자식
+//자식요소에 e가 없어도 부모요소 유전자 넣은 e를 찾아서 호출한다.
+
+var 어레이 = [4,2,1];
+var 어레이 = new Array(4,3,1);
+Array.prototype.함수 = function(){
+    console.log('어레이에 함수 하나 만들었다');
+}
