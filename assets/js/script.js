@@ -54,3 +54,6 @@ function 알림창열기(구멍,구멍2){
 document.getElementById('close').addEventListener('click',function(){
     알림창열기('none');
 });
+
+//제이쿼리는 바디태그 끝나는 곳 전에 넣는게 낫다.
+$('#jqueryTest').addClass('yellow-bg');
