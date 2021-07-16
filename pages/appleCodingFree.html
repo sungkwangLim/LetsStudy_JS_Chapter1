@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애플코딩유튜브강의</title>
+
+    <!-- font -->    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- css -->
+	<link href="../assets/css/common.css" rel="stylesheet" type="text/css">    
+	<link href="../assets/css/main.css" rel="stylesheet" type="text/css">    
+    
+</head>
+<body>
+    <section id="wrap">
+        <article>
+            <div class="layout">
+                <h1>Alert Box</h1>
+                <div class="alert-box">
+                    <p>Alert Box 1</p>
+                    <button type="button" id="close" >Alert Box Button Close</button>
+                </div>
+                <button type="button" onClick="알림창열기('block','아이디를 입력안하셨어요');">Alert Box Button Open1</button>
+                <button type="button" onClick="알림창열기('block','비번을 입력안하셨어요');">Alert Box Button Open2</button>
+            </div>
+        </article>
+        <article>
+            <div class="layout">
+                <h1>리액트포기자를 위한 jQuery 빠른기초</h1>
+                <h4 id="jqueryTest">안녕하세요</h4>
+            </div>
+        </article>
+    </section>
+<!-- js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+//html을 먼저 불러오고 js를 실행해야 버그가 안생김
+//js 선택자를 잘 보고 컨트롤해야함
+//Chrome 개발자 모드 콘솔창에서 버그 찾고 수정하는 방법 익숙해지기
+function 알림창열기(구멍,구멍2){
+    document.querySelector('.alert-box').style.display = 구멍;
+    document.querySelector('.alert-box > p').innerHTML = 구멍2;
+}
+
+// 파라메터값 넣는거 배우면서 아래 코드는 중복코드라 주석처리
+// function 알림창닫기(){
+//     document.querySelector('.alert-box').style.display = 'none'
+// }
+
+/* 
+ 20210714 코딩애플4강 숙제 -> html은 냅두고 버튼1, 버튼2 눌렀을때 파라메터값을 이용해서
+ '아이디를 입력안하셨어요'
+ '비번을 입력안하셨어요'
+ 라고 텍스트 표시하게 만들기
+*/
+
+//이벤트 리스너 배우기
+document.getElementById('close').addEventListener('click',function(){
+    알림창열기('none');
+});
+
+//제이쿼리는 바디태그 끝나는 곳 전에 넣는게 낫다.
+$('#jqueryTest').addClass('yellow-bg');
+
+//객체지향 Class문법 이해하기 예전 문법
+function 기계(스킬1,스킬2){
+    this.q = 스킬1;
+    this.w = 스킬2;
+}
+var nunu = new 기계('누누스킬1','누누스킬2');
+var garen = new 기계('가렌스킬1','가렌스킬2');
+
+//객체지향 Class문법 이해하기 ES6 클래스 넣을때 첫문자는대문자
+class Hero { //부모
+    constructor(스킬1,스킬2){
+        this.q = 스킬1;
+        this.w = 스킬2;
+    }
+}
+//prototype 은 한마디로 유전자
+Hero.prototype.e = '스킬3';
+
+var bein = new Hero('베인스킬1','베인스킬2'); //자식
+//자식요소에 e가 없어도 부모요소 유전자 넣은 e를 찾아서 호출한다.
+
+var 어레이 = [4,2,1];
+var 어레이 = new Array(4,3,1);
+Array.prototype.함수 = function(){
+    console.log('어레이에 함수 하나 만들었다');
+}
+</script>
+</body>
+</html>
