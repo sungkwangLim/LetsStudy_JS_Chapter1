@@ -20,3 +20,5 @@ jquery쓰지말고 순수 JS로만 천천히 공부 시작해 봅시다.
 
 # 드림코딩by엘리 자바스크립트 강의 보고 공부
 유료강의 처럼 꼼꼼하게 알려준다. 기대된다.
+
+자바스크립트 3. 데이터타입, data types, let vs var, hoisting // completed
