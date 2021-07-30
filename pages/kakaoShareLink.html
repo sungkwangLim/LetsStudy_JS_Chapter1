@@ -38,9 +38,9 @@
         const desc = 'test_desc';
         const url = 'https://github.com/sungkwangLim';
         const img = 'https://avatars.githubusercontent.com/u/74582792?v=4?s=400';
-        kakaoShareLink(title,url,desc,img);
+        kakaoShareLink(title,desc,img);
     }); 
-    function kakaoShareLink(title,url,desc,img){
+    function kakaoShareLink(title,desc,img){
         const setting = {
 			objectType: 'feed',
 			content: {
@@ -48,16 +48,16 @@
 				description: desc,
 				imageUrl: img,
 				link: {
-					mobileWebUrl: url,
-					webUrl: url
+					mobileWebUrl: 'https://github.com/sungkwangLim',
+					webUrl: 'https://github.com/sungkwangLim'
 				}
 			},
 			buttons: [
 				{
 					title: '웹으로 보기',
 					link: {
-						mobileWebUrl: url,
-						webUrl: url
+						mobileWebUrl: 'https://github.com/sungkwangLim',
+						webUrl: 'https://github.com/sungkwangLim'
 					}
 				}
 			]
