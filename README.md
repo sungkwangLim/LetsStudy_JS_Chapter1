@@ -22,6 +22,7 @@ jquery쓰지말고 순수 JS로만 천천히 공부 시작해 봅시다.
 유료강의 처럼 꼼꼼하게 알려준다. 기대된다.
 
 자바스크립트 3. 데이터타입, data types, let vs var, hoisting // completed
+자바스크립트 4. 코딩의 기본 operator, if, for loop  // completed 
 
-
+강의가 조금 딮한감도 있어서 지루한거같다. 그래도 기본 개념을 익히도록 하자.
 # 카카오톡 공유하기 링크 테스트
