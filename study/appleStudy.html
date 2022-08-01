@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apple Study</title>
+        
+    <!-- js -->
+</head>
+<body>
+<p id="hello">안녕</p>
+<button id="button">버튼</button>
+<script>
+    document.getElementById('button').addEventListener('click',function(){
+        작명('바보');
+    });
+    function 작명(파라미터){
+        document.getElementById('hello').innerHTML = 파라미터
+    }
+
+    var name = ['kim','park']; //array
+
+    var name2 = {
+        name : 'kim',
+        age : 20
+    } //object 콤마를 꼭 찍어야함.
+
+    if(1==1){
+        console.log('안녕');
+    } else {
+        console.log('바이');
+    } // 조건문
+
+    for(var i = 0; i<5; i++){
+        console.log(i);
+    } //반복문
+
+    ['a','b','c','d'].forEach(function(a){
+       console.log(a);
+    }); //array 반복문
+
+</script>
+</body>
+</html>
