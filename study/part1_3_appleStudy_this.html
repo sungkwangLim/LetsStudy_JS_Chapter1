@@ -39,6 +39,10 @@
             datavar : 12,
             obj함수 : function(){
                 console.log(this); //오브젝트 내 함수안에서 this를 쓰면 나를 포함하고 있는 오브젝트(obj2.data)가 선택.
+                let test = ()=>{ 
+                    console.log(this); //바로위 함수 this를 가져온다.
+                }
+                test();
             },
             objarrow함수 : () => {  
                 console.log(this); //arrow 함수는 최상위 오브젝트를 출력 window
