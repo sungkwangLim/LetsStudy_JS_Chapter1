@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apple Study this</title>
+        
+    <!-- js -->
+</head>
+<body>
+<button id="버튼">버튼</button>
+
+<script> 
+    
+    function 기계(){ //오브젝트 기계 (constructor)
+        this.이름 = "Lim" //새로 생성되는 오브젝트(instance)
+    } 
+    // 3번째뜻 this 기계 안에서 쓰면 새로 생성되는 오브젝트를 뜻함
+    // 오브젝트 반복 생성 기계
+     
+    var 오브젝트 = new 기계();
+    console.log(오브젝트);
+    // 기계 (constructor)에서 오브젝트 생산하는법
+
+
+    // 4번째 뜻 this eventListener
+    document.getElementById('버튼').addEventListener('click',function(e){        
+        console.log(this , e.currentTarget); //지금 이벤트를 동작하는곳. 버튼객체
+        // 4번째 뜻 this 이벤트 리스너 안에서는 e.curretTarget
+
+        // this case study1
+        var 어레이 = [1,2,3];
+        어레이.forEach(function (a) { //함수안에 함수를 넣을수있음. 이건 콜백함수라 함.
+            //console.log(a);
+            console.log(this); // window가 찍힘. 
+            //함수가 쓰인 위치에따라 this값이 변함.
+        });
+    });
+
+    // this case study2
+
+    var 오브젝트2 = {
+        이름들 : ['김','이','박'],
+        함수 : function(){
+            console.log(this); // 위 함수를 소유한 오브젝트가 출력됨.
+            // 오브젝트2.이름들.forEach(function () {
+            //     console.log(this);// window가 찍힘. 
+            // });
+            오브젝트2.이름들.forEach(()=> { //arrow 함수 특징 : 내부의 this값을 변화시키지 않음. (외부 this 값 그대로 재사용 가능)
+                console.log(this); // 바로 위에있는 this값을 그대로 씀.
+            });
+        }
+    }
+    오브젝트2.함수();
+</script>
+</body>
+</html>
