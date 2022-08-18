@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apple Study arrow function</title>
+        
+    <!-- js -->
+</head>
+<body>
+<button id="버튼">버튼</button>
+
+<script> 
+    //함수 만드는법 1
+    function 함수1() {
+        
+    }
+
+    //함수 만드는법 2
+    var 함수2 = function() {
+        
+    }
+    //함수를 만드는 이유 -> 기능을 묶고싶을때, 입출력 기계를 만들고 싶을때
+
+    //es6 arrow함수
+    var arrow함수 = (a) => {
+        return a + 10
+    }
+    console.log(arrow함수(3)); 
+
+    //arrow 함수 활용 forEach 예시
+    [1,2,3,4].forEach((a) => {
+        console.log(a);
+    });
+    //arrow 함수 활용 예시
+    document.getElementById('버튼').addEventListener('click',function(e){        
+        
+        //addEventListener 도 arrow함수로 축약이 가능하지만, 함수 내의 this값을 변경시키지 않음.
+        //arrow 함수 특징은 바깥에 있는 this값을 내부에서 그대로 사용함.
+
+    });
+
+    var 오브젝트 = {
+        함수 : () => {
+            return this; //window
+        },
+    }
+</script>
+</body>
+</html>
