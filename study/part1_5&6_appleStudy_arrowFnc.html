@@ -9,7 +9,7 @@
     <!-- js -->
 </head>
 <body>
-<button id="버튼">버튼</button>
+<button id="버튼">버튼이에요</button>
 
 <script> 
     //함수 만드는법 1
@@ -46,6 +46,51 @@
             return this; //window
         },
     }
+
+
+
+    // part1_6 this&arrow function 연습문제 3개 
+    var 사람 = {
+        name : '손흥민',
+        sayHi : function(){
+            return `안녕 나는 ${this.name}`
+        }
+    }
+    사람.sayHi(); //안녕 나는 손흥민 
+
+    var 자료 = {
+        data : [1,2,3,4,5]
+    }
+    
+    // 자료.전부더하기 = function(){
+    //     let sum = 0;
+    //     자료.data.forEach((i)=>{
+    //         sum += i;
+    //     });
+    //     return sum;
+    // }
+    // 아래 강사님이 문제풀이한것
+    자료.전부더하기 = function(){
+        let 합 = 0;
+        this.data.forEach((a) => {
+            합 = 합 + a;
+        });
+        return console.log(합);
+    }
+    자료.전부더하기();
+
+
+    document.getElementById('버튼').addEventListener('click',function(e){
+                    
+        // var 변수  = this.innerHTML;
+        // function 셋타임(){
+        //     return console.log(변수); 
+        // }
+        // setTimeout(셋타임,1000); 옛날방식
+        let 셋타임 = () => console.log(this.innerHTML); 
+        setTimeout(셋타임,1000);
+        
+    });
 </script>
 </body>
 </html>
