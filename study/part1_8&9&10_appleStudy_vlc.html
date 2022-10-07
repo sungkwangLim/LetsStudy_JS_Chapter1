@@ -21,11 +21,13 @@
     // 범위 중요!
 
     if (true) {
-        let b = 2;
+        var a = 1;
+        let b = 2;        
         if (true) {
-            b = 3;
+            let a = 2; //범위가 {} 이기때문에 여기 안에서만 
+            b = 3; //재당했기때문에 {} 밖에서도 가능.
         }
-        console.log(b);
+        console.log(a,b);
     }
 </script>
 </body>
