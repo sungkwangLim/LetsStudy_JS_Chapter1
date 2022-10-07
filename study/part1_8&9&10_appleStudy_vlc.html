@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apple Study var let const</title>
+        
+    <!-- js -->
+</head>
+<body>
+<script> 
+    var 변수1 = 1; 
+    let 변수2 = 1;
+    const 상수1 = 1;
+
+    // 변수는 선언, 할당, 범위,
+    // var 재선언O 재할당O 범위 function
+    // let 재선언X 재할당O 범위 {}
+    // const 재선언X 재할당X 범위 {}
+    // 범위 중요!
+
+    if (true) {
+        let b = 2;
+        if (true) {
+            b = 3;
+        }
+        console.log(b);
+    }
+</script>
+</body>
+</html>
