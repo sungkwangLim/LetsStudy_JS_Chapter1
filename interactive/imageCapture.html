@@ -7,9 +7,13 @@
     <title>Document</title>
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<style>
+    #card_box {position: relative;}
+    #card_box p {font-size: 25px; position: absolute; left: 0; width: 100%; text-align: center; z-index: 1; color: #fff;}
+</style>
 <body>
     <div class="copy" id="card_box">
+        <p>테스트입니다</p>
         <img id="end_img" src="test.png">
     </div>
     <!-- <canvas id="canvas"></canvas> -->
@@ -47,17 +51,17 @@
             html2canvas(card, { backgroundColor: 'rgba(0, 0, 0, 0)', removeContainer: true })
         .then(canvas => {
             // 캔버스에 이미지 그리기
-            canvas.width = card_img.width;
-            canvas.height = card_img.height;
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(card_img, 0, 0);
+            // canvas.width = card_img.width;
+            // canvas.height = card_img.height;
+            // var ctx = canvas.getContext("2d");
+            // ctx.drawImage(card_img, 0, 0);
     
             // 텍스트 그리기
-            ctx.font = "bold 24px sans-serif";
-            ctx.fillStyle = "white";
-            ctx.fillText("Hello, World!", 50, 50);
+            // ctx.font = "bold 24px sans-serif";
+            // ctx.fillStyle = "white";
+            // ctx.fillText("Hello, World!", 50, 50);
 
-            var image = canvas.toDataURL('image/png',0.5);
+            var image = canvas.toDataURL('image/png');
             var a = document.createElement('a')
             a.setAttribute('download', 'cass-equity-card.png')
             a.setAttribute('href', image);
