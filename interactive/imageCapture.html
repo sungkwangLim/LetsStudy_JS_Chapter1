@@ -39,7 +39,7 @@
             // 이미지를 로컬에 저장
             var link = document.createElement("a");
             link.download = "example-with-text.png";
-            link.href = canvas.toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+            link.href = canvas.toDataURL("image/png",0.5);
             link.click();
         }
     }
