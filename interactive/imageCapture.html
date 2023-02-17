@@ -49,6 +49,8 @@
             html2canvas(card, { backgroundColor: 'rgba(0, 0, 0, 0)', removeContainer: true })
         .then(canvas => {
             // 캔버스에 이미지 그리기
+            canvas.width = card_img.width;
+            canvas.height = card_img.height;
             var ctx = canvas.getContext("2d");
             ctx.drawImage(card_img, 0, 0);
     
