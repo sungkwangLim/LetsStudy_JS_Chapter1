@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0, width=device-width">
     <title>Document</title>
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <style>
-    #card_box {position: relative;}
+    #card_box {position: relative; width: 100%; max-width: 500px;}
     #card_box p {font-size: 25px; position: absolute; left: 0; width: 100%; text-align: center; z-index: 1; color: #fff;}
+    #card_box img {max-width : 100%;}
 </style>
 <body>
     <div class="copy" id="card_box">
@@ -48,7 +49,7 @@
         function name() {
             const card = document.querySelector('#card_box');
             const card_img = document.querySelector('#end_img');
-            html2canvas(card, { backgroundColor: 'rgba(0, 0, 0, 0)', removeContainer: true })
+            html2canvas(card, { removeContainer: true })
         .then(canvas => {
             // 캔버스에 이미지 그리기
             // canvas.width = card_img.width;
@@ -61,7 +62,7 @@
             // ctx.fillStyle = "white";
             // ctx.fillText("Hello, World!", 50, 50);
 
-            var image = canvas.toDataURL('image/png');
+            var image = canvas.toDataURL().replace(/^data:image\/[^;]/, 'data:application/octet-stream');
             var a = document.createElement('a')
             a.setAttribute('download', 'cass-equity-card.png')
             a.setAttribute('href', image);
