@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.121.0/build/three.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // Set up the scene, camera, and renderer
+      var scene = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      // Create the sphere and add it to the scene
+      var sphereGeometry = new THREE.SphereGeometry(500, 32, 32);
+      var sphereMaterial = new THREE.MeshLambertMaterial({
+        color: 0xffffff,
+      });
+      var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+      scene.add(sphere);
+
+      // Create the lights and add them to the scene
+      var ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+      scene.add(ambientLight);
+      var pointLight = new THREE.PointLight(0xffffff, 1);
+      pointLight.position.set(0, 0, 0);
+      scene.add(pointLight);
+
+      // Set up the camera and render the scene
+      camera.position.z = 1000;
+      function render() {
+        requestAnimationFrame(render);
+        sphere.rotation.x += 0.01;
+        sphere.rotation.y += 0.01;
+        renderer.render(scene, camera);
+      }
+      render();
+
+      let size = 15;
+let matrix = [];
+for (let i = 0; i < size; i++) {
+  matrix[i] = [];
+  for (let j = 0; j < size; j++) {
+    matrix[i][j] = 0;
+  }
+}
+
+let count = 1;
+let row = 0;
+let col = 0;
+let dRow = 0;
+let dCol = 1;
+
+for (let i = 0; i < size * size; i++) {
+  matrix[row][col] = count;
+  if (row + dRow < 0 || row + dRow >= size || col + dCol < 0 || col + dCol >= size || matrix[row + dRow][col + dCol] !== 0) {
+    [dRow, dCol] = [dCol, -dRow];
+  }
+  row += dRow;
+  col += dCol;
+  count++;
+}
+
+for (let i = 0; i < size; i++) {
+  for (let j = 0; j < size; j++) {
+    document.write(matrix[i][j] + " ");
+  }
+  document.write("<br>");
+}
+
+
+    </script>
+    
+  </body>
+</html>
