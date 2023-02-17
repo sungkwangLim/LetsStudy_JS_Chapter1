@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<body>
+    <div class="copy" id="card_box">
+        <img id="end_img" src="test.png">
+    </div>
+    <button type="button"><span>버튼</span></button>
+    <script>
+      // 이미지 로드
+    //   var img = new Image();
+    //   img.src = "cass-equity-card.png";
+    //   img.onload = function() {
+    //     // 캔버스 생성
+    //     var canvas = document.getElementById("canvas");
+    //     canvas.width = img.width;
+    //     canvas.height = img.height;
+  
+    //     // 캔버스에 이미지 그리기
+    //     var ctx = canvas.getContext("2d");
+    //     ctx.drawImage(img, 0, 0);
+  
+    //     // 텍스트 그리기
+    //     ctx.font = "bold 24px sans-serif";
+    //     ctx.fillStyle = "white";
+    //     ctx.fillText("Hello, World!", 50, 50);
+  
+    //     // 이미지를 로컬에 저장
+    //     var link = document.createElement("a");
+    //     link.download = "example-with-text.png";
+    //     link.href = canvas.toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+    //     link.click();
+    //   }
+        function name() {
+            const card = document.querySelector('#card_box');
+            const card_img = document.querySelector('#end_img');
+            html2canvas(card, { backgroundColor: 'rgba(0, 0, 0, 0)', removeContainer: true })
+        .then(canvas => {
+            // 캔버스에 이미지 그리기
+            var ctx = canvas.getContext("2d");
+            ctx.drawImage(card_img, 0, 0);
+    
+            // 텍스트 그리기
+            ctx.font = "bold 24px sans-serif";
+            ctx.fillStyle = "white";
+            ctx.fillText("Hello, World!", 50, 50);
+
+            var image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
+            var a = document.createElement('a')
+            a.setAttribute('download', 'cass-equity-card.png')
+            a.setAttribute('href', image);
+            a.click();
+            canvas.remove()
+        })      
+        }
+    document.querySelector('button').addEventListener('click',function(){
+        name();
+    });
+    </script>
+  </body>
+</html>
