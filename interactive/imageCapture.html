@@ -40,7 +40,8 @@
         function name() {
             const card = document.querySelector('#card_box');
             const card_img = document.querySelector('#end_img');
-            html2canvas(card, { backgroundColor: 'rgba(0, 0, 0, 0)', removeContainer: true })
+            html2canvas(card, { backgroundColor: 'rgba(0, 0, 0, 0)', removeContainer: true, imageTimeout: 15000, //newline
+        scale:3 })
         .then(canvas => {
             // 캔버스에 이미지 그리기
             var ctx = canvas.getContext("2d");
