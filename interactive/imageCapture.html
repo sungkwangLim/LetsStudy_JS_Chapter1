@@ -62,7 +62,7 @@
             // ctx.fillStyle = "white";
             // ctx.fillText("Hello, World!", 50, 50);
 
-            var image = canvas.toDataURL().replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+            var image = canvas.toDataURL("image/png");
             var a = document.createElement('a')
             a.setAttribute('download', 'cass-equity-card.png')
             a.setAttribute('href', image);
