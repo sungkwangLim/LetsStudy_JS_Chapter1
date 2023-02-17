@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인터렉티브 개발 실무 끝장내기 개별 공부</title>
+</head>
+<style>
+*{margin: 0; padding: 0; list-style: none;}
+body {transition: 1s background cubic-bezier(0.075, 0.82, 0.165, 1);}
+header {display: flex; justify-content: space-between; align-items: center; position: fixed; left: 0; top: 0; width: 100%; background: rgba(0,0,0,0.6);}
+nav ul {display: flex;}
+nav ul li a{font-size: 16px; color: #fff; text-decoration: none; padding: 12px;}
+.btns button {
+  background-color: #F87171;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.btns button:hover {
+  background-color: #FBBF24;
+}
+.content .sec {min-height: 100vh; display: flex; justify-content: center; align-items: center;}
+</style>
+<body>
+    <header>
+        <h1>LOGO</h1>
+        <nav>
+            <ul>
+                <li><a href="#">1번고</a></li>
+                <li><a href="#">2번고</a></li>
+                <li><a href="#">3번고</a></li>
+                <li><a href="#">4번고</a></li>
+            </ul>
+        </nav>
+        <div class="btns">
+            <button type="button" class="btn-prev">PREV</button>
+            <button type="button" class="btn-next">NEXT</button>
+        </div>
+    </header>
+    <section class="content">
+        <section class="sec sec1">
+            <div class="layout">1번 page</div>
+        </section>
+        <section class="sec sec2">
+            <div class="layout">2번 page</div>
+        </section>
+        <section class="sec sec3">
+            <div class="layout">3번 page</div>
+        </section>
+        <section class="sec sec4">
+            <div class="layout">4번 page</div>
+        </section>
+    </section>
+</body>
+<script>
+    const btnPrev = document.querySelector('.btn-prev');
+    const btnNext = document.querySelector('.btn-next');
+    const secCont = document.querySelectorAll('.content .sec');
+    const logo = document.querySelector('header h1');
+    const colors = ['#00BFFF', '#FF7F50', '#9932CC', '#228B22'];
+    let pageNum = 0;
+
+    init(pageNum);
+
+    window.addEventListener('scroll',function(e){
+        let y = this.scrollY;
+        let typeA = Math.round(y + window.innerHeight);
+        let typeB = Math.round(window.innerHeight*0.2)
+        secCont.forEach((el,i) => {
+            // if(y <= el.offsetTop + el.offsetHeight && Math.round(y + window.innerHeight)  >= el.offsetTop + el.offsetHeight){
+            //     console.log(el); 
+            // }
+            if(y>=el.offsetTop-typeB && y<=el.offsetTop + el.offsetHeight - typeB){
+                document.body.style.backgroundColor = colors[i]
+            }
+        });
+    });
+    logo.addEventListener('click',function (e) {
+        pageNum = 0;
+        scrollPage(pageNum);
+    })
+    btnPrev.addEventListener('click',function (e) {
+        if(pageNum > 0){
+            pageNum--
+        }
+        scrollPage(pageNum);
+        console.log(pageNum);
+    });
+    btnNext.addEventListener('click',function (e) {
+        if(pageNum < secCont.length-1){
+            pageNum++
+        }
+       scrollPage(pageNum);
+       console.log(pageNum);
+    });
+    function init(a) {
+        scrollPage(a);
+        document.body.style.backgroundColor = colors[a]
+    }
+    function scrollPage(a) {
+        window.scrollTo({
+            top: secCont[a].offsetTop,
+            behavior: 'smooth',
+        });
+        //document.body.style.backgroundColor = colors[a];
+    }
+    
+</script>
+</html>
