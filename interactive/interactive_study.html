@@ -83,7 +83,8 @@ nav ul li a{font-size: 16px; color: #fff; text-decoration: none; padding: 12px;}
             //     console.log(el); 
             // }
             if(y>=el.offsetTop-typeB && y<=el.offsetTop + el.offsetHeight - typeB){
-                document.body.style.backgroundColor = colors[i]
+                document.body.style.backgroundColor = colors[i];
+                return
             }
         });
     });
@@ -116,6 +117,5 @@ nav ul li a{font-size: 16px; color: #fff; text-decoration: none; padding: 12px;}
         });
         //document.body.style.backgroundColor = colors[a];
     }
-    
 </script>
 </html>
