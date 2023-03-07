@@ -70,9 +70,18 @@ nav ul li a{font-size: 16px; color: #fff; text-decoration: none; padding: 12px;}
     const secCont = document.querySelectorAll('.content .sec');
     const logo = document.querySelector('header h1');
     const colors = ['#00BFFF', '#FF7F50', '#9932CC', '#228B22'];
+    const nav = document.querySelectorAll('nav ul li a');
     let pageNum = 0;
 
     init(pageNum);
+
+    nav.forEach(function(el,i){
+        el.addEventListener('click',function(evt){
+            evt.preventDefault();
+            pageNum = i;
+            scrollPage(pageNum);
+        });
+    });
 
     window.addEventListener('scroll',function(e){
         let y = this.scrollY;
