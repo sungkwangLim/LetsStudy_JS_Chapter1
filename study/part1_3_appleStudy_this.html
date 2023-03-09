@@ -46,12 +46,23 @@
             },
             objarrow함수 : () => {  
                 console.log(this); //arrow 함수는 최상위 오브젝트를 출력 window
+            },
+            objin:{
+                a:1,
+                objin함수1 : function () {
+                    console.log(this.a);
+                    objin함수2:()=>{
+                        console.log(this);
+                    }   
+                },
+                             
             }
         }
     }
 
     obj2.data.obj함수();
     obj2.data.objarrow함수();
+    obj2.data.objin.objin함수1();
 
     //1. this 그냥쓰거나 일반 함수에서 쓰면 {window}
     //2. 오브젝트 내 함수에서 쓰면 그 함수를 가지고 있는 오브젝트를 뜻함.  나를 담고있는 오브젝트
@@ -59,7 +70,33 @@
     // 랜딩이 될 때 window 오브젝트가 불러와서 함수나 변수를 전역공간에서 만들면 {window}에 보관합니다. window는 전역 오브젝트라고 생각하면 쉬움.    
     window.함수(); //를 불러도 잘 불러와짐.
 
-    
+    const objstudy = {
+        studyVar : 1,
+        studyFnc : function(i){
+            //console.log(i);
+            
+            this.studyFncIn = (a)=>{
+                console.log(this.studyFnc(),a+lol)
+                return a+lol;
+            }
+
+            let lol = i;
+
+            return this;
+        },
+        studyFnc2 : function(){
+            //console.log(lol);
+        }
+        
+    }
+    objstudy.studyFnc(3).studyFncIn(4);
+    objstudy.studyFnc2();
+    objstudy.addFnc = function () {
+        console.log(this)
+    }
+    objstudy.addFnc();
+
+    document.querySelector('h1');
 </script>
 </body>
 </html>
