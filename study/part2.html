@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apple Study spread rest example</title>
+        
+    <!-- js -->
+</head>
+<body>
+<script> 
+
+    console.log(글자세기('aaaaaaaaacbb4441212233'));
+    // {a:3,b:2,c:1}
+    function 글자세기(문자){
+        const 문자들 = [...문자].sort();
+        const 오브젝트 = {};
+        문자들.forEach(function (el) { 
+            //만약에 문자들에 a가있으면 +1 해주고 
+            //없으면 초기화로 a : 1로 만들어줘라.
+            if(오브젝트[el]){
+                오브젝트[el] = 오브젝트[el] + 1;
+            } else {
+                오브젝트[el] = 1;
+            }
+        })
+        return 오브젝트;
+    }
+
+    //한글로 논리적으로 먼저 풀어서 고민해보고 개발해보기
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apple Study template literals & spread operator</title>
+        
+    <!-- js -->
+</head>
+<body>
+<script> 
+    // 문자열을 쉽게 관리 할 수 있는 `` 문법
+    var 양말 = 100;
+    var 모자 = 50;
+
+    function 해체분석기(문자,...변수들){
+        console.log(문자,변수들);
+    }
+    해체분석기 `양말은 ${양말}개 입니다. 모자는 ${모자}개 입니다.`;
+
+    //모든 괄호 없애주는 spread operator
+    var 어레이1 = [1,2,3];
+    var 문자열1 = '대박사건';
+    var 스오기능 = [...어레이1,...문자열1]; //array 들을 합치기 복사하기 쉽다.
+
+    console.log(스오기능);
+
+    console.log(글자세기('aaaaaaaaacbb4441212233'));
+    // {a:3,b:2,c:1}
+    function 글자세기(문자){
+        const 문자들 = [...문자].sort();
+        const 오브젝트 = {};
+        문자들.forEach(function (el) { 
+            //만약에 문자들에 a가있으면 +1 해주고 없으면 초기화로 a : 1로 만들어줘라.
+            if(오브젝트[el]){
+                오브젝트[el] = 오브젝트[el] + 1;
+            } else {
+                오브젝트[el] = 1;
+            }
+        })
+        return 오브젝트;
+    }
+
+</script>
+</body>
+</html>
