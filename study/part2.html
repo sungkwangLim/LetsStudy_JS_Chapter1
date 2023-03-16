@@ -17,8 +17,8 @@
         const 문자들 = [...문자].sort();
         const 오브젝트 = {};
         문자들.forEach(function (el) { 
-            //만약에 문자들에 a가있으면 +1 해주고 
-            //없으면 초기화로 a : 1로 만들어줘라.
+            //만약에 문자들에 같은 키값이 있으면 +1(카운팅) 해주고 
+            //없으면 초기화로 키값 : 1(카운팅 할것)로 만들어줘라.
             if(오브젝트[el]){
                 오브젝트[el] = 오브젝트[el] + 1;
             } else {
@@ -30,6 +30,26 @@
 
     //한글로 논리적으로 먼저 풀어서 고민해보고 개발해보기
 
+
+    //part2_6 객체지향 object생성 기계인 constructor를 만들어보기
+    //연습문제
+    var product1 = { name : 'shirts', price : 50000 };
+    var product2 = { name : 'pants' , price : 60000 };
+    //앞으로 몇 십개를 더 만드러야해서 하드코딩은 그만두고 constructor를 만들어서 오브젝트를 뽑아보자.
+    //1. 위처럼 생긴 상품 오브젝트를 뽑아 낼 수 잇는 constructor를 제작해보세요. 그리고 실제 상품 두개를 뽑아보세요.
+    //2. 상품마다 부가세() 라는 내부 함수를 실행하면 상품가격 *10%만큼 부가세금액이 출력되도록 해보세요.
+    function 쇼핑몰데이터obj기계(n,p) {
+        this.name = n,
+        this.price = p,
+        this.부가세 = function(){
+            var 부가세금 = this.price * 0.1;
+            console.log( this.price + 부가세금);
+        }
+    }
+    var 상품1 = new 쇼핑몰데이터obj기계('shirts',50000);
+    var 상품2 = new 쇼핑몰데이터obj기계('pants',60000);
+    상품1.부가세();
+    상품2.부가세();
 </script>
 </body>
 </html>
