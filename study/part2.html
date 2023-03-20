@@ -50,6 +50,49 @@
     var 상품2 = new 쇼핑몰데이터obj기계('pants',60000);
     상품1.부가세();
     상품2.부가세();
+
+    class 부모 {
+        constructor(){
+            this.name = 'kim';
+            this.say = function () {
+                console.log(this);
+            }
+        }
+        sayHi(){
+            console.log('hello');
+        }
+    }
+    
+    var 자식 = new 부모();
+    console.log(Object.getPrototypeOf(자식)); // __.proto__ 랑 똑같은 의미
+
+    class 할아버지 {
+        constructor(name){
+            this.성 = 'lim';
+            this.이름 = name
+        }
+        sayHi(){
+            console.log(`안녕하세요. 저는 ${this.성+this.이름} 입니다.`);
+        }
+    }
+
+    var 할아버지1 = new 할아버지('만덕');
+
+    할아버지1.sayHi();
+
+    class 아버지 extends 할아버지 {
+        constructor(a){
+            super(a); // 할아버지에 있는 constructor 내용을 가지고 오는게 super
+            this.나이 = 20;
+        }
+        sayHi2(){
+            console.log(`${this.나이}`);
+            super.sayHi();  // 할아버지에 있는 prototype 함수 내용을 가지고 오는게 super
+        }
+    }
+    var 아버지1 = new 아버지('만수');
+    아버지1.sayHi2();
+
 </script>
 </body>
 </html>
