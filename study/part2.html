@@ -52,6 +52,77 @@
     상품2.부가세();
 
     쇼핑몰데이터obj기계.prototype.이율 = 300;
+
+    class 부모 {
+        constructor(){
+            this.name = 'kim';
+            this.say = function () {
+                console.log(this);
+            }
+        }
+        sayHi(){
+            console.log('hello');
+        }
+    }
+    
+    var 자식 = new 부모();
+    console.log(Object.getPrototypeOf(자식)); // __.proto__ 랑 똑같은 의미
+
+    class 할아버지 {
+        constructor(name){
+            this.성 = 'lim';
+            this.이름 = name
+        }
+        sayHi(){
+            console.log(`안녕하세요. 저는 ${this.성+this.이름} 입니다.`);
+        }
+    }
+
+    var 할아버지1 = new 할아버지('만덕');
+
+    할아버지1.sayHi();
+
+    class 아버지 extends 할아버지 {
+        constructor(a){
+            super(a); // 할아버지에 있는 constructor 내용을 가지고 오는게 super
+            this.나이 = 20;
+        }
+        sayHi2(){
+            console.log(`${this.나이}`);
+            super.sayHi();  // 할아버지에 있는 prototype 함수 내용을 가지고 오는게 super
+        }
+    }
+    var 아버지1 = new 아버지('만수');
+    아버지1.sayHi2();
+
+    var 겟셋 = {
+        name : 'lim',
+        age : 20,
+        set setAge(a){
+            this.age = a; //set 사용시 파라미터를 꼭 사용해야함.
+        },
+        get getAge(){
+            return this.age + 1 //get 사용시 return 을 꼭 써줘야함.
+        }
+    }
+
+    겟셋.setAge = 30; //set get 문법 사용시 함수호출을 하면 오류.
+    console.log(겟셋.getAge); //set get 문법 사용시 함수호출을 하면 오류.
+
+    //get set 데이터 출력 수정 함수를 만들어 쓰는 이유는, 실수를 미리 방지(조건문을사용해서)하기에 용이하고, 관리에 편함.
+    class 겟셋2 { //class에 get set 문법 오브젝트와 비슷함.
+        constructor(){
+            this.name = 'lim';
+            this.age = 20;
+        }
+        set setAge(a){ //set 사용시 파라미터를 꼭 사용해야함.
+            this.age = a;
+        }
+        get getAge(){ 
+            return this.age + 1; //get 사용시 return 을 꼭 써줘야함.
+        }
+    }
+    var 겟셋2_1 = new 겟셋2();
     
 </script>
 </body>
