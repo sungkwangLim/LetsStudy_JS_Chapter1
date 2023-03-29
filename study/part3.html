@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apple Study part3</title>
+        
+    <!-- js -->
+</head>
+<body>
+    <div>
+        <img id="testimg" src="https://codingapple1.github.io/kona.jpg" />
+    </div>
+    <div>
+        <button type="button" id="btn"><span>프로미스를클릭하는버튼</span></button>
+    </div>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script> 
+
+    //프로미스는 성공 실패를 판단해주는 기계
+    var 프로미스 = new Promise(function(성공,실패) {
+        setTimeout(function () {
+            성공('성공');
+        },5000)
+    });
+    
+    프로미스.then(function(v){ //성공하면 then 콜백함수를 실행
+        console.log(`${v}했습니다.`);
+    }).catch(function (v) { //실패하면 then 콜백함수를 실행
+        console.log(`${v}했습니다.`);
+    });
+    // 프로미스는 3가지 상태를 가진다 프로미스 콘솔로그 찍어보셈
+    // 1. 판정 대기상태 pending
+    // 2. 성공하면 resolved
+    // 3. 실패하면 rejected
+    // 프로미스는 비동기적 처리를 바꿔주는 마법의 문법은 아님.
+    // 비동기적 처리를 담당하는소스를 많이 사용할뿐이다. 
+    // 동기처리로 10초가 걸리는 소스가 실행되면 프로미스 콜백함수는 10초간 멈춰있기때문에
+    // 프로미스는 성공 실패를 관리하기 편하게 만들어주는 디자인 패턴.
+
+    // fetch().then().catch(); //fetch 문법은 프로미스를 리턴한다.
+
+
+    // 예제1 이미지가 로드가되면 콘솔창에 성공/실패하면 콘솔창에 실패 만들기
+    const img = document.querySelector('#testimg');
+    var 이미지프로미스 = new Promise(function(성공,실패) {
+        img.addEventListener('load',function(){
+            성공('이미지 로드 완료');
+        });
+        img.addEventListener('error',function(){
+            실패('이미지 로드 실패');
+        });
+    });
+
+    이미지프로미스.then(function(v){ //성공하면 then 콜백함수를 실행
+        console.log(`${v}했습니다.`);
+    }).catch(function (v) { //실패하면 then 콜백함수를 실행
+        console.log(`${v}했습니다.`);
+    });
+
+    var 아작스프로미스 = 아작스여러개뽑는함수('https://codingapple1.github.io/hello.txt');
+
+    아작스프로미스.then(function(r){  //첫번째 프로미스 성공하면 콜백실행
+        console.log(r); 
+        return 아작스여러개뽑는함수('https://codingapple1.github.io/hello2.txt'); //두번째 then을 위해 return값을 넣는다.
+    }).then(function(r) { //두번째 프로미스 성공하면 콜백실행
+        console.log(r); 
+        return 아작스여러개뽑는함수('https://codingapple1.github.io/hello3.txt'); // 없는 파일값리턴하면?
+    }).then(function(r) { //여기는 성공한값이 들어오고 hello3는 성공한값이 아니기때문에 catch로넘김
+        console.log(r); 
+    }).catch(function (r) { //hello3은없기때문에 catch 콜백실행
+        console.log(r); //error
+    });
+
+    function 아작스여러개뽑는함수(URL){
+        return new Promise(function (resolved,rejected) {
+            $.ajax({
+                type:'GET',
+                url: URL            
+            }).done(function(결과){
+                resolved(결과); //성공했을시
+            }).fail(function() {
+                rejected('error'); //실패했을시
+            });
+        });
+    };
+
+    async function 에이싱크함수(){
+        const 프로미스2 = new Promise(function (성공,실패) { 
+            const btn = document.querySelector('#btn');
+            btn.addEventListener('click',function(){
+               성공(); 
+            }); 
+        });
+
+        const 결과 = await 프로미스2;
+        console.log(결과);
+        
+    }
+    에이싱크함수();
+    
+    
+</script>
+</body>
+</html>
