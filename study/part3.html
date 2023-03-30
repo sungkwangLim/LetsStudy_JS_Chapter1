@@ -18,6 +18,24 @@
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script> 
+    // Destructuring 문법
+    // array or object 안에있는 변수들을 쉽게 저장 하는문법.
+    var [a1,a2,a3] = [1,2,3] //array 에서는 순서 패턴을 동일하게 지정하면됨.
+    console.log(a1) // 1
+    var { name , age } = { name:'lim', age:30 } //object 에서는 키값과 패턴을 동일하게 지정하면됨.
+    console.log(name,age)
+
+    var obj변수들 = { //object생성
+        ojb변수1 : '테스트입니다.',
+        ojb변수2 : '공부합시다.'
+    }
+    디스트럭처링문법(obj변수들) //함수도 가능. object를 보낼때 함수 안에 파라미터를 키값을 동일하게 지정하면됨
+    function 디스트럭처링문법( { ojb변수1,ojb변수2 } ){
+        console.log(ojb변수1,ojb변수2) // 각각 변수로 저장됨.
+
+        //array 도 동일한 방식임.
+    }
+    
 
     //프로미스는 성공 실패를 판단해주는 기계
     var 프로미스 = new Promise(function(성공,실패) {
@@ -28,7 +46,7 @@
     
     프로미스.then(function(v){ //성공하면 then 콜백함수를 실행
         console.log(`${v}했습니다.`);
-    }).catch(function (v) { //실패하면 then 콜백함수를 실행
+    }).catch(function (v) { //실패하면 catch 콜백함수를 실행
         console.log(`${v}했습니다.`);
     });
     // 프로미스는 3가지 상태를 가진다 프로미스 콘솔로그 찍어보셈
@@ -101,7 +119,41 @@
     }
     에이싱크함수();
     
-    
+    //for in for of 반복문 
+    const ojb반복문테스트 = {
+        a : 1,
+        b : {
+            b1 : 1,
+            b2 : 2,
+            b3 : 3,
+            c : {
+                c1:1,
+                c2:2,
+                d: {
+                    d:1
+                }
+            }
+        },
+        e: 3
+    }
+    // for (const key in ojb반복문테스트) {
+    //     const element = ojb반복문테스트[key];
+    //     for (const key in element) {
+    //         console.log([key],element[key]);
+    //     }
+    //     console.log(element);
+    // }
+    function printObj(obj) { //chatgpt가알려준 object 안에 내부속성들 모두 반복하는 소스 
+        Object.keys(obj).forEach((key) => {
+            if (typeof obj[key] === 'object') {
+                printObj(obj[key]);
+            } else {
+                console.log(`${key}: ${obj[key]}`);
+            }
+        });
+    }
+    console.log(Object.entries(ojb반복문테스트)); 
+    printObj(ojb반복문테스트)
 </script>
 </body>
 </html>
