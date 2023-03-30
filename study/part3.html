@@ -10,7 +10,7 @@
 </head>
 <body>
     <div>
-        <img id="testimg" src="https://codingapple1.github.io/kona.jpg" />
+        <img id="testimg" src="https://picsum.photos/600/600" />
     </div>
     <div>
         <button type="button" id="btn"><span>프로미스를클릭하는버튼</span></button>
@@ -74,7 +74,7 @@
 
     이미지프로미스.then(function(v){ //성공하면 then 콜백함수를 실행
         console.log(`${v}했습니다.`);
-    }).catch(function (v) { //실패하면 then 콜백함수를 실행
+    }).catch(function (v) { //실패하면 catch 콜백함수를 실행
         console.log(`${v}했습니다.`);
     });
 
@@ -143,6 +143,7 @@
     //     }
     //     console.log(element);
     // }
+    
     function printObj(obj) { //chatgpt가알려준 object 안에 내부속성들 모두 반복하는 소스 
         Object.keys(obj).forEach((key) => {
             if (typeof obj[key] === 'object') {
@@ -153,7 +154,22 @@
         });
     }
     console.log(Object.entries(ojb반복문테스트)); 
-    printObj(ojb반복문테스트)
+    printObj(ojb반복문테스트);
+
+    //for of 반복문은 Array,문자,arguments,NodoList,Map,Set interable한 자료형에만 사용가능
+    const 구구단자료들 = [1,2,3,4,5,6,7,8,9];
+
+    for (const 자료 of 구구단자료들) {
+        console.log(`===============`)
+        for (const 구구단 of 구구단자료들) {
+            console.log(`${자료} * ${구구단} = ${자료 * 구구단}` );
+        } 
+        if (구구단자료들.length == 자료) {
+            console.log(`===============`)
+        }
+    }
+
+    console.log([1,2,3][Symbol.iterator]())
 </script>
 </body>
 </html>
